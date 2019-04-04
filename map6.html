@@ -1,0 +1,57 @@
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>Google Maps - pygmaps </title>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false"></script>
+<script type="text/javascript">
+	function initialize() {
+		var centerlatlng = new google.maps.LatLng(30.316495, 78.032192);
+		var myOptions = {
+			zoom: 5,
+			center: centerlatlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+var heatmap_points = [
+new google.maps.LatLng(26.966670, -105.316670),
+new google.maps.LatLng(31.805000, -97.010000),
+new google.maps.LatLng(36.800000, -108.000000),
+new google.maps.LatLng(39.800000, -101.200000),
+new google.maps.LatLng(40.305830, -105.023250),
+new google.maps.LatLng(31.833330, -98.833330),
+new google.maps.LatLng(38.470280, -105.241390),
+new google.maps.LatLng(26.466670, -105.233330),
+new google.maps.LatLng(21.166670, -100.866670),
+new google.maps.LatLng(25.370000, -97.370000),
+new google.maps.LatLng(19.967220, -103.051670),
+new google.maps.LatLng(39.246670, -104.588170),
+new google.maps.LatLng(30.833330, -97.766670),
+new google.maps.LatLng(34.900000, -110.183330),
+new google.maps.LatLng(40.350000, -104.900000),
+new google.maps.LatLng(29.450000, -96.000000),
+new google.maps.LatLng(35.883330, -99.333330),
+new google.maps.LatLng(24.683330, -101.683330),
+new google.maps.LatLng(38.500000, -101.100000),
+new google.maps.LatLng(31.608330, -102.858330),
+];
+
+var pointArray = new google.maps.MVCArray(heatmap_points);
+var heatmap;
+heatmap = new google.maps.visualization.HeatmapLayer({
+
+data: pointArray
+});
+heatmap.setMap(map);
+heatmap.set('threshold', 10);
+heatmap.set('radius', 10);
+heatmap.set('opacity', 0.600000);
+heatmap.set('dissipating', true);
+	}
+</script>
+</head>
+<body style="margin:0px; padding:0px;" onload="initialize()">
+	<div id="map_canvas" style="width: 100%; height: 100%;"></div>
+</body>
+</html>
